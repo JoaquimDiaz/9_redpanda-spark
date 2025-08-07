@@ -71,6 +71,19 @@ services:
     environment:
       IP: redpanda
       PORT: 9092
-    command: ["python", "ticket_generator.py", "--interval", "0.2"]
+    command: ["python", "ticket_generator.py", "--interval", "1"]
     networks:
       - redpanda_network
+  spark-job:
+      build:
+        context: ./spark_job  
+      container_name: spark-job
+      depends_on:
+        - redpanda
+      environment:
+        KAFKA_BOOTSTRAP_SERVERS: redpanda-0:9092
+        KAFKA_TOPIC: client_ticket
+      volumes:
+        - ./output:/app/output
+      networks:
+        - redpanda_network

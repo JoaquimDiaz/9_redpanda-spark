@@ -2,8 +2,6 @@
 #    uv pip compile pyproject.toml -o requirements.txt
 kafka-python==2.2.9
     # via 09-spark-redpanda (pyproject.toml)
-polars==1.30.0
-    # via 09-spark-redpanda (pyproject.toml)
 py4j==0.10.9.7
     # via pyspark
 pyspark==3.5.5

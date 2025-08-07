@@ -1,10 +1,18 @@
-FROM apache/spark:3.5.5
-
-WORKDIR /app
+FROM bitnami/spark:3.5.0-debian-12-r18
+USER root
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+WORKDIR /app
 
-CMD ["spark-submit", "--packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0", "spark_job.py"]
+COPY spark_job.py .
+COPY config.py .
+
+# Create output directory
+RUN mkdir -p /app/output
+
+CMD ["spark-submit", \
+     "--master", "local[*]", \
+     "--packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0", \
+     "spark_job.py"]

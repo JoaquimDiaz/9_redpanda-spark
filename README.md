@@ -1,10 +1,8 @@
-## Starting
+## Project schema
 
-```bash
-uv install
-```
+![alt text](img/mermaid_diagram.svg)
 
-## Launching RedPanda
+## Launching RedPanda  standalone
 
 ```bash
 rpk container start -n 1
@@ -33,14 +31,6 @@ Here is the format of the generated tickets:
 | `type`        | Category of the request (e.g., support, billing)   | `"support"`            |
 | `priorite`    | Priority level indicating urgency                  | `"urgent"`             |
 
-## Restarting the project
-
-```bash
-rpk topic delete client_ticket
-
-rpk topic list
-```
-
 ## Launching pyspark script
 
 Kafka requires spark to be launched with a package.
@@ -58,6 +48,14 @@ spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.5 <python
 ```
 
 Make sur `/.venv` is activated.
+
+## Launching the app with docker
+
+```bash
+docker compose up -d
+```
+
+You can retrieve the csv and parquet files produced in the `./output` folder.
 
 ## Ressources
 
