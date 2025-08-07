@@ -1,4 +1,4 @@
-## Handling client tickets with Redpand and PySpark
+## Handling client tickets with Redpanda and PySpark
 
 ![alt text](img/mermaid_diagram.svg)
 
@@ -56,6 +56,10 @@ docker compose up -d
 ```
 
 You can retrieve the csv and parquet files produced in the `./output` folder.
+
+## Loom Video
+
+https://www.loom.com/share/0708c27be7b6422bada69f9b7322e46b
 
 ## Ressources
 
