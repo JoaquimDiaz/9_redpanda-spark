@@ -1,4 +1,4 @@
-## Project schema
+## Handling client tickets with Redpand and PySpark
 
 ![alt text](img/mermaid_diagram.svg)
 
